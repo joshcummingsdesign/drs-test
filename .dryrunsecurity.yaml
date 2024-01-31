@@ -1,0 +1,10 @@
+sensitiveCodepaths:
+  - 'package.json'
+allowedAuthors:
+  usernames:
+    - 'cnichols-dry'
+    - 'cktricky'
+    - 'jordan-dr'
+    - 'joshcummingsdesign'
+notificationList:
+  - '@cktricky'
