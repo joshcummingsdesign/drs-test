@@ -13,11 +13,3 @@ function sayHi() {
 function login() {
   // TODO: implement
 }
-
-function login() {
-  // TODO: implement
-}
-
-function bar() {
-  return '';
-}
