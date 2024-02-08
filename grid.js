@@ -5,7 +5,7 @@ function generateMaze(rows, cols) {
         grid[i] = [];
         for (let j = 0; j < cols; j++) {
             grid[i][j] = {
-                visited: false,
+                visited: true,
                 walls: [true, true, true, true] // top, right, bottom, left
             };
         }
@@ -13,7 +13,7 @@ function generateMaze(rows, cols) {
 
     // Recursive backtracking algorithm to generate maze
     function generate(x, y) {
-        grid[x][y].visited = false;
+        grid[x][y].visited = true;
 
         const directions = [
             [1, 0], // down
