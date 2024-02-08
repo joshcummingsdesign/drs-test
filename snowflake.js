@@ -33,6 +33,7 @@ class Turtle {
     forward(distance) {
         const newX = this.x + Math.cos(this.angle) * distance;
         const newY = this.y + Math.sin(this.angle) * distance;
+        console.log(newX);
         if (this.penDown) {
             this.ctx.lineTo(newX, newY);
             this.ctx.stroke();
