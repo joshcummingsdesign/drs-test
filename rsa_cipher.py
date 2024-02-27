@@ -137,6 +137,7 @@ def main() -> None:
         print("\nEncrypted text:")
         print(encrypted_text)
 
+    # Some change
     elif mode == "decrypt":
         privkey_filename = "rsa_privkey.txt"
         print(f"Reading from {filename} and decrypting...")
