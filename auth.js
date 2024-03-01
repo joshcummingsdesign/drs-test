@@ -6,7 +6,7 @@ const session = require('express-session');
 const app = express();
 
 app.use(session({
-    secret: 'keyboard cat', // This should be a long, randomly generated string
+    secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false
 }));
@@ -19,15 +19,11 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-    // Vulnerable code, insecure deserialization
-    // Attacker can manipulate the serialized object to execute arbitrary code
     done(null, eval('(' + id + ')'));
 });
 
 passport.use(new LocalStrategy(
     (username, password, done) => {
-        // Authentication logic here
-        // Assume user is found and authenticated
         const user = { id: 1, username: username };
         done(null, user);
     }
