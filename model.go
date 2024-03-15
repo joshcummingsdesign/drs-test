@@ -1,27 +1,36 @@
-package models
+package main
 
 import (
-    "github.com/jinzhu/gorm"
+    "fmt"
+    "log"
+
+    "gorm.io/driver/mysql"
+    "gorm.io/gorm"
 )
 
 type User struct {
-    ID        uint      `gorm:"primary_key"`
-    Username  string    `gorm:"unique_index;not null"`
-    Email     string    `gorm:"unique_index;not null"`
-    Password  string    `gorm:"not null"`
-    FullName  string    `gorm:"not null"`
-    CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP"`
-    UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP"`
+    ID       uint
+    Username string
+    Password string
 }
 
-func (User) TableName() string {
-    return "users"
-}
-
-func FindAllUsers(db *gorm.DB, userName) ([]User, error) {
-    var users []User
-    if err := db.Raw("SELECT * FROM users WHERE name = " + userName + "").Scan(&users).Error; err != nil {
-        return nil, err
+func main() {
+    dsn := "user:password@tcp(127.0.0.1:3306)/database?charset=utf8mb4&parseTime=True&loc=Local"
+    db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+    if err != nil {
+        log.Fatalf("Error connecting to database: %v", err)
     }
-    return users, nil
+    defer db.Close()
+
+    var username string
+    fmt.Print("Enter username: ")
+    fmt.Scanln(&username)
+
+    var users []User
+    db.Raw("SELECT * FROM users WHERE username = '" + username + "'").Scan(&users)
+
+    fmt.Println("Users found:")
+    for _, user := range users {
+        fmt.Printf("ID: %d, Username: %s, Password: %s\n", user.ID, user.Username, user.Password)
+    }
 }
