@@ -1,6 +1,6 @@
 const username = req.body.username;
 
-sequelize.query(`SELECT * FROM Users WHERE username = '${username}'`)
+sequelize.query("SELECT * FROM Users WHERE username = $1", username)
   .then(users => {
     console.log(users);
   })
