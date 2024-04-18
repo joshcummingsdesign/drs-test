@@ -1,9 +1,5 @@
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    @Query(value = "SELECT * FROM users WHERE username = ?1", nativeQuery = true)
-    User findByUsername(String username);
-}
+@RequestMapping(value="user", method = RequestMethod.GET)
+public @ResponseBody Item getProvider(@RequestParam("data") String zipCode) {
+    EntityManager em = entityManagerFactory.createEntityManager();
+    String q = "select * from PROVIDERS where public_listing is true and zip_code = '" + zipCode + "'";
+    Query query = em.createNativeQuery(q);
