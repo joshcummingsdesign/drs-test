@@ -1,10 +1,14 @@
 sensitiveCodepaths:
-  - 'package.json'
+  # Files only allowed authors can modify
+  # - 'app.js'
+  - 'requirements.txt'
 allowedAuthors:
   usernames:
-    - 'cnichols-dry'
-    - 'cktricky'
-    - 'jordan-dr'
-    - 'joshcummingsdesign'
+    # GitHub username
+    # - 'jordan-dr'
 notificationList:
-  - '@cktricky'
+  # GitHub username or team name
+  - '@DryRunSec/security'
+  # - '@john-doe'
+codeQuestions:
+  - 'Does this PR change the encryption of sensitive data?'
