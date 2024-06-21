@@ -11,4 +11,4 @@ notificationList:
   - '@DryRunSec/security'
   # - '@john-doe'
 codeQuestions:
-  - 'Does this PR include a phone number?'
+  - 'Does this PR change the encryption of sensitive data?'
