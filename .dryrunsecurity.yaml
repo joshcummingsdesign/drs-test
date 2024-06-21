@@ -10,7 +10,7 @@ notificationList:
   # GitHub username or team name
   - '@DryRunSec/security'
   # - '@john-doe'
-summaryQuestions:
+questions:
   - 'Does this PR include an personal identifiable information (PII)?'
 codeQuestions:
   - 'Does this PR change the encryption of sensitive data?'
