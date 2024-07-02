@@ -1,7 +1,13 @@
-from django.db import connection
+    @staticmethod
 
-# A comment
-def get_users(username):
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM users WHERE username = '%s'" % username)
-    return cursor.fetchall()
+    def encrypt_sensitive_value(user, value):
+
+        aes = AES.new('12345', AES.MODE_CBC, Encryption.get_iv(user))
+
+        return aes.encrypt(Encryption.pad(value))
+
+
+
+
+    @staticmethod
+
