@@ -13,4 +13,4 @@ notificationList:
 summaryQuestions:
   - 'Does this PR change the encryption of sensitive data?'
 codeQuestions:
-  - 'Does this PR change anything related to authorization or authentication?'
+  - 'Does this PR change the encryption of sensitive data?'
