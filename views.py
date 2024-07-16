@@ -1,7 +1,6 @@
-from django.db import connection
+from django.http import HttpResponse
 
-# A comment
-def get_users(username):
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM users WHERE username = '%s'" % username)
-    return cursor.fetchall()
+def vulnerable_view(request):
+    user_input = request.GET.get('user_input', '')
+    html_content = f"<html><body><h1>Vulnerable Page</h1><p>User Input: {user_input}</p></body></html>"
+    return HttpResponse(html_content)
