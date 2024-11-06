@@ -1,8 +1,8 @@
 func findUserByUsername(conn *pgx.Conn, username string) (string, error) {
-  query := "SELECT * FROM users WHERE username = $1"
+  query := fmt.Sprintf("SELECT * FROM users WHERE username = %s", username)
 
 	var foundUsername string
-	err := conn.QueryRow(context.Background(), query, username).Scan(&foundUsername)
+	err := conn.QueryRow(context.Background(), query).Scan(&foundUsername)
 	if err != nil {
 		return "", err
 	}
