@@ -1,11 +1,9 @@
-func findUserByUsername(conn *pgx.Conn, username string) (string, error) {
-  query := fmt.Sprintf("SELECT * FROM users WHERE username = %s", username)
-
-	var foundUsername string
-	err := conn.QueryRow(context.Background(), query).Scan(&foundUsername)
-	if err != nil {
-		return "", err
-	}
-
-	return foundUsername, nil
+func getUsers(username string) *domain.User {
+    var user User
+    result := db.Raw("SELECT * FROM users WHERE name = '" + userName + "'").Scan(&user)
+    if result.Error != nil {
+        fmt.Println("User not found")
+        return nil
+    }
+    return user.convert()
 }
