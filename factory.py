@@ -1,3 +1,4 @@
+# Get the user
 def get_user():
     user_id = request.args.get('id')
 
