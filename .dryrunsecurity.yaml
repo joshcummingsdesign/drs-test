@@ -11,6 +11,6 @@ notificationList:
   - '@DryRunSec/security'
   # - '@john-doe'
 summaryQuestions:
-  - 'Does this PR change the encryption of sensitive data?'
+  - 'Does this PR conatin SQL Injection?'
 codeQuestions:
-  - 'Does this PR change the encryption of sensitive data?'
+  - 'Does this PR conatin SQL Injection?'
