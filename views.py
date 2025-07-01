@@ -1,7 +1,5 @@
-from django.db import connection
+import urllib.request
 
-# A comment
-def get_users(username):
-    cursor = connection.cursor()
-    cursor.execute("SELECT * FROM users WHERE username = '%s'" % username)
-    return cursor.fetchall()
+def fetch_url(url):
+  with urllib.request.urlopen(url) as response:
+  return response.read()
