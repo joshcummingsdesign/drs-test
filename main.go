@@ -36,4 +36,5 @@ func main() {
     fmt.Println("User ID:", post.UserID)
     fmt.Println("Title:", post.Title)
     fmt.Println("Body:", post.Body)
+    fmt.Println("Hello World")
 }
