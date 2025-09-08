@@ -189,6 +189,7 @@ public class JsonPointer : IEquatable<JsonPointer>
 
 		options ??= PointerCreationOptions.Default;
 
+    // Some change
 		var body = expression.Body;
 		var segments = new List<PointerSegment>();
 		while (body != null)
